@@ -1,5 +1,12 @@
 # note: variables allow you to store some kind of value
-# ex: speed = 3.14159
+# ex: speed = 3.14159 
+
+# float: number with a decimal
+# int: whole number
+# string: text enclosed in quotation marks
+# boolean: True or False
+isRaining = False
+
 print ('hello, what is your name?')
 name = input () # allowing users to type in something
 

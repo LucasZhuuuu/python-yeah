@@ -7,18 +7,19 @@ description = input().split()
 
 clothing = [] # empty list
 
+# fruits = ['mango', 'kiwi', 'apple']
+
 # for loop = each element performs
 for word in description:
-    if word == "cold":
+    if "cold" in word:
         clothing.append("long sleeve") # dot = go one level deeper
     elif "rain" in word:
         clothing.append("rain jacket")
     elif "cloud" in word:
         clothing.append("jeans")
-    elif word == "hot":
+    elif "hot" in word:
+        print("test")
         clothing.append("t-shirt")
-
-print(clothing)
 
 print("Based off of your description, you should wear: ")
 
