@@ -79,18 +79,26 @@
 # noun = str(input())
 
 # story_gen(noun)
+
 import random
 
 magicians = ["Grandma", "Bob", "Adam"]
-spells = ["Fireball", "Shadow Pull", "Stub your toe"]
+spells = ["Fireball", "Shadow Pull", "Water splash"]
 
 def magician_spell(noun : str):
     print(f"{random.choice(magicians)} casts {random.choice(spells)}")
 
 magician_spell("noun")
 
+print("Who do you want your magician to be?")
+
+magician = input()
+
+if magician == "Grandma":
+    print(f"{magician} casts Fireball")
 
     
+
 
 
 
