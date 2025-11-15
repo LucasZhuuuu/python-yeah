@@ -5,7 +5,7 @@ keyword = input("Keyword (A–Z): ").strip().upper()
 message = input("Message: ").strip().upper()
 # This takes the input for the message, strips any leading/trailing spaces, and converts it to uppercase.
 
-letters = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+letters = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ") # simpler way to create lists, it shows that letter has the list "A-Z"
 # This creates a list of uppercase English alphabet letters (A-Z), which we will use later for indexing the letters.
 
 # Keep only letters (remove non-alphabetical characters)
@@ -24,6 +24,7 @@ for i, ch in enumerate(msg):
     # `enumerate` gives both the index `i` and the character `ch`.
 
     cols[i % len(keyword)].append(ch)
+
     # The character `ch` is added to a column.
     # The column is selected by `i % len(keyword)`, which cycles through columns in a round-robin manner.
     # For example, if `keyword` has 4 letters, it will add characters to columns 0, 1, 2, 3 in order,
@@ -34,8 +35,18 @@ for i, ch in enumerate(msg):
 
 
 for i, col in enumerate(cols):
-    shift = letters.index(keyword[i])
-    new_position = [(i + shift) % 26] 
-    for n in range(len(col)):
-        col[n] = letters[(i + shift) % 26]
-        print(col[n])
+    shift = letters.index(keyword[i]) 
+    for letter_index in range(len(col)):
+        new_position = letters[(letters.index(col[letter_index]) + shift) % 26]
+        col[letter_index] = new_position
+        
+
+# 3) Read row-wise to produce the result
+rows = max((len(col) for col in cols), default=0)
+out = [] # empty list??
+for r in range(rows): # checks each r in rows???
+    for c in range(len(cols)): # checks each c in the length of cols
+        if r < len(cols[c]): # if r is less than the value of cols[c] which is each c in the length of cols, at a certain index
+            out.append(cols[c][r]) # ?? maybe like then  the c and r of the cols gets added to out, which wqas prevously an emptyh list
+result = ''.join(out) # result is a variablethat has the total letters of the cols, and ''
+print(result) # prints the result.
