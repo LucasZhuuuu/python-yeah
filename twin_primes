@@ -1,0 +1,59 @@
+import math
+
+# Loop through the grid and count every pair of twin primes that are next to each 
+# other horizontally, vertically, or diagonally
+
+
+# 1. Both Prime
+# 2. Next to eachother
+# 3. Differ by exactly 2
+
+
+# 12 5  7  9
+# 11 13 17 19
+# 4  6  7  3 
+
+def is_prime(n : int) -> bool:
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True 
+
+# count_pairs = (grid) -> int
+print(is_prime(8))
+
+is_prime(7)
+
+# print(math.abs(#))
+
+def count_pairs(grid) -> int:
+    rows = len(grid)
+    cols = len(grid[0])
+    num = grid[r][c]
+    for r in range(rows):
+        for c in range(cols):
+            if not is_prime(num):
+                break
+            else:
+
+                right = grid[r][c + 1]
+                left = grid[r][c - 1]
+                up = grid[r - 1][c]
+                down = grid[r + 1][c]
+                
+            if right - num == (math.abs(2)): # how to make this apply for all of them tho?
+                count_pairs += 1
+            else:
+                break
+            
+
+grid = [
+    [12, 5, 7, 9], 
+    [11, 13, 17, 19], 
+    [4, 6, 7, 3]
+]
+
+# for n in grid
+
+
+
